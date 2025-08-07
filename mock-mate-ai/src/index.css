@@ -1,0 +1,250 @@
+/* General Reset + Base */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #e6f0ff);
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #64748b;
+}
+
+/* Layout */
+.main-content {
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Interview Question Box */
+.interview-box {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s ease;
+}
+
+.interview-box:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.question-text {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+/* Input Area */
+.input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 640px;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .input-area {
+    flex-direction: row;
+  }
+}
+
+.input-field {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.input-field:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.input-field::placeholder {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.submit-button {
+  background-color: #2563eb;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* Feedback Panel */
+.feedback-panel {
+  position: relative;
+  background-color: #f0f4ff;
+  border-left: 5px solid #2563eb;
+  padding: 1.5rem 1.75rem;
+  border-radius: 14px;
+  font-size: 1rem;
+  color: #1e293b;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  animation: slideFadeIn 0.4s ease-in-out;
+  backdrop-filter: blur(2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark Mode */
+.dark {
+  background: linear-gradient(to bottom, #0f172a, #1e293b);
+  color: #f1f5f9;
+}
+
+.dark .interview-box,
+.dark .feedback-panel {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  border-left-color: #60a5fa;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+.dark .input-field {
+  background-color: #334155;
+  color: #f1f5f9;
+  border-color: #475569;
+}
+
+.dark .submit-button {
+  background-color: #60a5fa;
+  color: #1e293b;
+}
+
+.dark .submit-button:hover {
+  background-color: #3b82f6;
+}
+
+.dark .theme-toggle {
+  color: #e2e8f0;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.3rem;
+  background: none;
+  border: none;
+  color: #555;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.2);
+  color: #1e40af;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .app-title {
+    font-size: 1.6rem;
+  }
+
+  .question-text,
+  .input-field,
+  .submit-button,
+  .feedback-panel {
+    background-color: #f0f4ff;
+    border-left: 5px solid #2563eb;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #1e293b;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  .submit-button {
+    padding: 0.65rem 1.25rem;
+  }
+}
+
+.dark .question-text {
+  color: #f1f5f9;
+}
+
+.dark .input-field::placeholder {
+  color: #cbd5e1;
+}
+
+.dark .input-field:focus-visible {
+  outline-color: #60a5fa;
+}
