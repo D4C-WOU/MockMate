@@ -7,6 +7,8 @@
 
   
    return (
+   )
+ }
 -    <div className='interview-box'>
 -      <p className='question-text'>
 -            {question}
